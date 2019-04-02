@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Labs</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+	<script src="static/jquery.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+
+
+  </head>
+  <body>
+
+<button type="submit" onclick="insert()">INSERT</button>
+
+                        <script>
+
+                            function insert(){
+                                location.replace("http://localhost:5000/insert");
+                            }
+
+                        </script>
+
+
+
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				DataLabs
+			</h3>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Class Id
+						</th>
+						<th>
+							Class leader
+						</th>
+						<th>
+							Created On
+						</th>
+						<th>
+							Updated On
+						</th>
+
+						<th>
+							Action
+						</th>
+					</tr>
+				</thead>
+
+				{% for user in Data1 %}
+				<tbody>
+				<tr>
+					<form  method="POST" action="">
+						<td>
+						<!--<label name="userid">{{user.id}}</label>-->
+							<input type="text" name="id" value="{{user.id}}" readonly />
+						</td>
+						<td>
+							<input type="text" name="name" value="{{user.name}}" />
+						</td>
+						<td>
+							{{user.class_id}}
+						</td>
+						<td>
+							{{user.id}}
+						</td>
+						<td>
+							{{user.created_on}}
+						</td>
+						<td>
+							{{user.updated_on}}
+						</td>
+
+						<td>
+							<!--<input type="text" name="name"/>-->
+							<input onclick="up1()" type = "button" value="UPDATE"/> <button type="submit" onclick="del">Delete</button>
+						</td>
+                        </form>
+                         <script>
+                            function up1(){
+                                location.replace("http://localhost:5000/update");
+                            }
+
+
+                        </script>
+
+				</tr>
+
+
+				{% endfor %}
+
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+
+  </body>
+</html>
